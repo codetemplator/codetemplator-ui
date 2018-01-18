@@ -1,9 +1,0 @@
-<mat-card>
-  <mat-card-header>
-    <img mat-card-avatar [src]="(article$ | async)?.imgUrl" *ngIf="(article$ | async)?.imgUrl">
-    <mat-card-title>{{(article$ | async)?.name}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <markdown [data]="(article$ | async)?.content"></markdown>
-  </mat-card-content>
-</mat-card>

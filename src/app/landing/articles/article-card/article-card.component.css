@@ -1,9 +1,0 @@
-.wrapper {
-  margin: 10px;
-}
-
-mat-card {
-  height: 100px;
-  max-height: 100px;
-  overflow: hidden;
-}
