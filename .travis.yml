@@ -9,12 +9,12 @@ cache:
   yarn: true
 deploy:
   provider: cloudfoundry
-  api: api.run.pivotal.io
+  api: https://api.run.pivotal.io
   username: david.ahern26@gmail.com
   password:
-    secure: AbyN1jK76TVCqdUMh1ebQjFB+mUByZg+h2JqItpwzc/JLujXQEYU1i2EXbK7uBZySioO23HoSLz8dz6U2rSKBNjsBK8XTCcQkxmN7UX1i4v91PeVlS9ALZUV2hw3M2c4R4ISbfh/lG+aLQisCHRKAJ8g7JXppbTkL2Z+oiXLVhHIIBra+7qRZqiUixs41RnQMORWRZmLYwwYawGux1uCEZckjTYKy/H4J9iev726hzFY2h4iODYdiZivY7D9vUJ0cyakkoG8ztDg/CttFl6EyrmN5PSw7QX8I1jDVtDPgn5EIKgRfgJ1ioqv/+rQHKzKbDgNpmQSm1PQdPwi7gdQE2KRul0aHyBXKrhE8qzgMCo+HgzyfAZADBG7zg92+ArOgkdO5UNJTP71mTfUcGoobWagtFwh9Xb5jUedPHprc4YeqaInMg9F6eMqkHKiXs+i+5L/G0uRw/dQIYhOfHrxHaJLx1c0A+dZ0xUGpzIPM8+g76aE4KricawJGn4Ul96gd/KbJE3ZeFfSDwtDgZlvdjTcnIqprxRfd8S+VixDxjbQmTt11oKPngOwP+cG/vWlN8pNJY+aXPHxnPLwewkO/8MwpLtDecC0fM99GZJLCg0+Mi178OID9mPtR0fJ7CzJiyPeZY8Qj4mlPnjShm3BFX8EVndxbE3QmwPiX5zZV1k=
+    secure: FVZyJ3sR4vMrkHBbfYxY6swR3i4IY3q1l/aUR4GNCj5IWCxo97HxDyfZ/PDwq8HsH4lZRXMZNglVNPhABoETjlMDdm03194lDtjKIL2irh4eGDWKFTcxCC+tw4vEsFfXroBDXxnx03tHxkWQhEtR64AtXHAeZCkd6oWZpiwUu0MYezgXbngl0V06rP9ZxDVIhBi21ZZqV4bSDFNPAOsIgFbDbfFZdIWV0OZMqp0OgeHDEZoIMi5EUXFOV5nit/E4Cv8pfSc7hwcDygTHdu/rcgC0cS5XSv7lL7+vxHXjh9mNRXeD3DlXKUI/+7tWEasVw+DA0Ulq5tHDOxuZWzBGM+Gw0bjOZwIdkN4CaRUu/UB0Hv4FUktz/f8vBKyn4/aEiqWLeakBBg59nOqfvSNdYeHb456K18QlXj0H3HdeXN7AprJp/V66w60QZDNBWL1kK/cxmmW2sdbqzpTyII6qDQpHABCbR98y7/NF+wu7aM4tit3G3uxPd2bLOeiW+pF8tI+8BRpIlAqbs3YWf0KgYtNExIwsjS01x95ifGTK4X3ODcOMZrXpmGZatkCnrMFojZzp5LCYnRL76OEfzTbAM9GcWj97U5+uYFCmVNK35IuhlTWPzEWmFAgqJp+VzFWja6sd1zq3NyICipmvc3J0bepfwpBm8oX6GWk70rKvVOo=
   organization: thor
   space: prod
   on:
-    repo: el-davo/blog-ui-new
+    repo: redux-mesh/redux-mesh-ui
     branch: master

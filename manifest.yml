@@ -1,4 +1,4 @@
-name: prod-blog-frontend
+name: redux-mesh-ui
 instances: 1
 memory: 128M
 buildpack: nodejs_buildpack
