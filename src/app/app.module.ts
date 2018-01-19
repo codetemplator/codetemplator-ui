@@ -5,39 +5,26 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {routes} from './routes';
-import {NavModule} from './nav/nav.module';
 import {HttpClientModule} from '@angular/common/http';
-import {IsLoggedInGuard} from './router/is-logged-in.guard';
 import {LandingModule} from './landing/landing.module';
-import {SideNavModule} from './side-nav/side-nav.module';
 import {CoreModule} from './core/core.module';
-import {SharedModule} from './shared/shared.module';
-import {MatSidenavModule} from '@angular/material';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     RouterModule.forRoot(routes),
-    BrowserModule.withServerTransition({appId: 'blog'}),
+    BrowserModule.withServerTransition({appId: 'redux-mesh-ui'}),
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserTransferStateModule,
     NgReduxModule,
-    MatSidenavModule,
     CoreModule,
-    SharedModule,
-    NavModule,
-    LandingModule,
-    SideNavModule
+    LandingModule
   ],
-  exports: [
-    CoreModule
+  declarations: [
+    AppComponent
   ],
-  providers: [
-    IsLoggedInGuard
-  ],
+  exports: [],
+  providers: [],
   bootstrap: [
     AppComponent
   ]
