@@ -1,59 +1,25 @@
-version: '2'
+version: '3'
 
 services:
 
-  db:
-    image: mysql
-    container_name: database.dev
-    command: mysqld --user=root --verbose
-    ports:
-      - 3306:3306
-    networks:
-      main:
-        aliases:
-          - db
-    environment:
-      MYSQL_DATABASE: "retro"
-      MYSQL_USER: "username"
-      MYSQL_PASSWORD: "password"
-      MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-
-  redis:
-    image: redis
+  mongodb:
+    image: mongo:latest
     volumes:
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - mongodata:/data/db
     ports:
-      - 6379:6379
-    networks:
-      main:
-        aliases:
-          - redis
+      - 8001:27017
+    command: mongod --smallfiles --logpath=/dev/null
 
-  retro-api:
-    image: eahedav/retro-api:latest
+  redux-mesh-api:
+    image: reduxmesh/api
     depends_on:
-      - db
+      - mongodb
     ports:
       - 3000:3000
     networks:
       main:
         aliases:
-          - retro-api
-    command: >
-      /bin/bash -c "sleep 2; node ."
-
-  retro-gateway:
-    image: eahedav/retro-gateway:latest
-    depends_on:
-      - redis
-      - retro-api
-    ports:
-      - 8001:8080
-    networks:
-      main:
-        aliases:
-          - retro-gateway
+          - redux-mesh-api
     command: >
       /bin/bash -c "sleep 2; node ."
 
@@ -61,5 +27,6 @@ networks:
   main:
 
 volumes:
-  db:
+  mongodb:
   yarn:
+  mongodata:
