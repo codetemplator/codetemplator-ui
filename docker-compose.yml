@@ -11,7 +11,7 @@ services:
     command: mongod --smallfiles --logpath=/dev/null
 
   redux-mesh-api:
-    image: reduxmesh/api
+    image: reduxmesh/api:latest
     depends_on:
       - mongodb
     ports:
