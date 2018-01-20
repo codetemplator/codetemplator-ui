@@ -8,7 +8,11 @@ services:
       - mongodata:/data/db
     ports:
       - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null
+    networks:
+      main:
+        aliases:
+          - mongodb
+    command: mongod
 
   redux-mesh-api:
     image: reduxmesh/api:latest
@@ -16,12 +20,15 @@ services:
       - mongodb
     ports:
       - 3000:3000
+    environment:
+      - NODE_ENV=dev
+      - MONGODB_URL=mongodb://mongodb:27017/mydb
     networks:
       main:
         aliases:
           - redux-mesh-api
     command: >
-      /bin/bash -c "sleep 2; node ."
+      /bin/bash -c "sleep 5; node ."
 
 networks:
   main:
