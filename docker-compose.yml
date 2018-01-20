@@ -7,7 +7,7 @@ services:
     volumes:
       - mongodata:/data/db
     ports:
-      - 8001:27017
+      - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null
 
   redux-mesh-api:
