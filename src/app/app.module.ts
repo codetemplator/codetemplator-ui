@@ -8,6 +8,8 @@ import {routes} from './routes';
 import {HttpClientModule} from '@angular/common/http';
 import {LandingModule} from './landing/landing.module';
 import {CoreModule} from './core/core.module';
+import {NavModule} from './nav/nav.module';
+import {MatSidenavModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import {CoreModule} from './core/core.module';
     BrowserTransferStateModule,
     NgReduxModule,
     CoreModule,
+    MatSidenavModule,
+    NavModule,
     LandingModule
   ],
   declarations: [

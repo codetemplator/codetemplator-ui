@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   hmr: false,
-  blogApi: 'https://prod-blog-backend.cfapps.io/api'
+  api: 'http://localhost:3000/api'
 };
