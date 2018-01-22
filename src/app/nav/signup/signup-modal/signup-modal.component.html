@@ -1,0 +1,31 @@
+<mat-dialog-content>
+  <form style="height: 150px; max-height: 150px;">
+    <p *ngIf="!(signup$ | async)?.isSigningUp else spinner">
+      <mat-form-field>
+        <input matInput placeholder="Username"
+               (keyup)="updateUsername($event.target.value)"
+               [value]="(signup$ | async)?.signupForm.username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email"
+               (keyup)="updateEmail($event.target.value)"
+               [value]="(signup$ | async)?.signupForm.username">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password"
+               (keyup)="updatePassword($event.target.value)"
+               [value]="(signup$ | async)?.signupForm.password">
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="hide()">Cancel</button>
+  <button mat-button (click)="signup()">Login</button>
+</mat-dialog-actions>
+
+<ng-template #spinner style="width: 100%; display: block;">
+  <div>
+    <app-loading></app-loading>
+  </div>
+</ng-template>
