@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {User} from './user.state';
+import {SignupForm, SignupUser} from '../nav/signup/signup.state';
+import {LoginForm} from '../nav/login/login.state';
 
 @Injectable()
 export class UserService {
@@ -10,7 +12,11 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  login({username, password}: { username: string, password: string }): Observable<User> {
-    return this.http.post<User>(`${environment.api}/users/login`, {username, password});
+  login(loginForm: LoginForm): Observable<User> {
+    return this.http.post<User>(`${environment.api}/users/login`, loginForm);
+  }
+
+  signup(signupForm: SignupForm): Observable<SignupUser> {
+    return this.http.post<SignupUser>(`${environment.api}/api/signup`, signupForm);
   }
 }

@@ -10,6 +10,7 @@ import {rootReducer} from '../root.reducer';
 import {LoginEpics} from '../nav/login/login.epics';
 import {LoginModule} from '../nav/login/login.module';
 import {LoadingComponent} from './loading/loading.component';
+import {SignupEpics} from '../nav/signup/signup.epics';
 
 @NgModule({
   imports: [
@@ -23,16 +24,19 @@ import {LoadingComponent} from './loading/loading.component';
     LoadingComponent
   ],
   providers: [
-    LoginEpics
+    LoginEpics,
+    SignupEpics
   ]
 })
 export class CoreModule {
 
   constructor(private ngRedux: NgRedux<any>,
-              private loginEpics: LoginEpics) {
+              private loginEpics: LoginEpics,
+              private signupEpics: SignupEpics) {
 
     const epics = combineEpics(
-      ...this.loginEpics.epics
+      ...this.loginEpics.epics,
+      ...this.signupEpics.epics
     );
 
     const middleware = [
