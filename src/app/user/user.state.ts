@@ -1,9 +1,11 @@
 export const userState: UserState = {
-  user: null
-}
+  user: null,
+  isLoggedIn: false
+};
 
 export interface UserState {
-  user: User
+  user: User;
+  isLoggedIn: boolean;
 }
 
 export interface User {

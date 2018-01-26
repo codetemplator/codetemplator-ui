@@ -10,6 +10,7 @@ import {LandingModule} from './landing/landing.module';
 import {CoreModule} from './core/core.module';
 import {NavModule} from './nav/nav.module';
 import {MatSidenavModule} from '@angular/material';
+import {ApplicationsModule} from './applications/applications.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {MatSidenavModule} from '@angular/material';
     CoreModule,
     MatSidenavModule,
     NavModule,
-    LandingModule
+    LandingModule,
+    ApplicationsModule
   ],
   declarations: [
     AppComponent
