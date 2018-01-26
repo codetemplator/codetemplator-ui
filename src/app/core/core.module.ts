@@ -11,6 +11,7 @@ import {LoginEpics} from '../nav/login/login.epics';
 import {LoginModule} from '../nav/login/login.module';
 import {LoadingComponent} from './loading/loading.component';
 import {SignupEpics} from '../nav/signup/signup.epics';
+import {ApplicationsEpics} from '../applications/applications.epics';
 
 @NgModule({
   imports: [
@@ -25,18 +26,21 @@ import {SignupEpics} from '../nav/signup/signup.epics';
   ],
   providers: [
     LoginEpics,
-    SignupEpics
+    SignupEpics,
+    ApplicationsEpics
   ]
 })
 export class CoreModule {
 
   constructor(private ngRedux: NgRedux<any>,
               private loginEpics: LoginEpics,
-              private signupEpics: SignupEpics) {
+              private signupEpics: SignupEpics,
+              private applicationsEpics: ApplicationsEpics) {
 
     const epics = combineEpics(
       ...this.loginEpics.epics,
-      ...this.signupEpics.epics
+      ...this.signupEpics.epics,
+      ...this.applicationsEpics.epics
     );
 
     const middleware = [
