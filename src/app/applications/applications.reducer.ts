@@ -1,7 +1,7 @@
-import {ApplicationsState} from './applications.state';
+import {ApplicationsState, applicationState} from './applications.state';
 import {ApplicationsActions} from './applications.actions';
 
-export const applicationsReducer = (state: ApplicationsState, action): ApplicationsState => {
+export const applicationsReducer = (state: ApplicationsState = applicationState, action): ApplicationsState => {
   switch (action.type) {
     case ApplicationsActions.FETCH_APPS:
       return {...state, isFetchingApps: true};
