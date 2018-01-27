@@ -3,10 +3,12 @@ import {CommonModule} from '@angular/common';
 import {ApplicationsComponent} from './applications.component';
 import {ApplicationsActions} from './applications.actions';
 import {ApplicationsService} from './applications.service';
+import {MatSidenavModule} from '@angular/material';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatSidenavModule
   ],
   declarations: [
     ApplicationsComponent
