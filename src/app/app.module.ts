@@ -11,6 +11,7 @@ import {CoreModule} from './core/core.module';
 import {NavModule} from './nav/nav.module';
 import {MatSidenavModule} from '@angular/material';
 import {ApplicationsModule} from './applications/applications.module';
+import {LoggedInGuard} from './router/logged-in.guard';
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import {ApplicationsModule} from './applications/applications.module';
     AppComponent
   ],
   exports: [],
-  providers: [],
+  providers: [
+    LoggedInGuard
+  ],
   bootstrap: [
     AppComponent
   ]

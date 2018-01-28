@@ -8,10 +8,12 @@ import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import {environment} from '../../environments/environment';
 import {rootReducer} from '../root.reducer';
 import {LoginEpics} from '../nav/login/login.epics';
-import {LoginModule} from '../nav/login/login.module';
+import * as persistState from 'redux-localstorage'
 import {LoadingComponent} from './loading/loading.component';
 import {SignupEpics} from '../nav/signup/signup.epics';
 import {ApplicationsEpics} from '../applications/applications.epics';
+import {TokenInterceptor} from './token-interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -27,7 +29,12 @@ import {ApplicationsEpics} from '../applications/applications.epics';
   providers: [
     LoginEpics,
     SignupEpics,
-    ApplicationsEpics
+    ApplicationsEpics,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule {
@@ -53,6 +60,8 @@ export class CoreModule {
     }
 
     const enhancers = [];
+
+    enhancers.push(persistState('user'));
 
     ngRedux.configureStore(rootReducer, {}, middleware, enhancers);
   }

@@ -1,0 +1,21 @@
+<mat-dialog-content>
+  <form style="height: 150px; max-height: 150px;">
+    <p *ngIf="!(applications$ | async)?.isAddingApplication else spinner">
+      <mat-form-field>
+        <input matInput placeholder="Name"
+               (keyup)="updateName($event.target.value)"
+               [value]="(applications$ | async)?.addForm.name">
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="hide()">Cancel</button>
+  <button mat-button (click)="add()">Add</button>
+</mat-dialog-actions>
+
+<ng-template #spinner style="width: 100%; display: block;">
+  <div>
+    <app-loading></app-loading>
+  </div>
+</ng-template>

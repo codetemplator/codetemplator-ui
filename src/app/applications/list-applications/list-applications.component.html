@@ -1,0 +1,8 @@
+<mat-list>
+  <h3 mat-subheader>Applications</h3>
+  <mat-list-item *ngFor="let application of (applications$ | async)?.apps"
+                 [routerLink]="['/application', application.id]"
+                 (click)="hideSideNav()">
+    <h4 mat-line>{{application.name}}</h4>
+  </mat-list-item>
+</mat-list>

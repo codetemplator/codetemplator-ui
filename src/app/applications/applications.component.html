@@ -1,3 +1,7 @@
-<p>
-  applications works!
-</p>
+<mat-sidenav mode="over" [opened]="(applications$ | async)?.showSideNav">
+  <app-list-applications></app-list-applications>
+</mat-sidenav>
+<mat-sidenav-content>
+  Hello
+  <app-add-application-button></app-add-application-button>
+</mat-sidenav-content>
