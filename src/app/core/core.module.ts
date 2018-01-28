@@ -12,6 +12,8 @@ import * as persistState from 'redux-localstorage'
 import {LoadingComponent} from './loading/loading.component';
 import {SignupEpics} from '../nav/signup/signup.epics';
 import {ApplicationsEpics} from '../applications/applications.epics';
+import {TokenInterceptor} from './token-interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -27,7 +29,12 @@ import {ApplicationsEpics} from '../applications/applications.epics';
   providers: [
     LoginEpics,
     SignupEpics,
-    ApplicationsEpics
+    ApplicationsEpics,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule {

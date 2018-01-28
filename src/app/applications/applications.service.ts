@@ -12,7 +12,7 @@ export class ApplicationsService {
   }
 
   getApps(user: User): Observable<Application[]> {
-    return this.http.get<Application[]>(`${environment.api}/users/${user.id}/apps`);
+    return this.http.get<Application[]>(`${environment.api}/users/${user.userId}/apps`);
   }
 
 }
