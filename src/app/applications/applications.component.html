@@ -1,5 +1,6 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side">
-    Hello
-  </mat-sidenav>
-</mat-sidenav-container>
+<mat-sidenav mode="over" [opened]="(applications$ | async)?.showSideNav">
+  <app-list-applications></app-list-applications>
+</mat-sidenav>
+<mat-sidenav-content>
+  Hello
+</mat-sidenav-content>

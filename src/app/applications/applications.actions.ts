@@ -8,9 +8,16 @@ export class ApplicationsActions {
   static FETCH_APPS_OK = 'applications/FETCH_APPS_OK';
   static FETCH_APPS_FAIL = 'applications/FETCH_APPS_FAIL';
 
+  static SHOW_SIDE_NAV = 'applications/SHOW_SIDE_NAV';
+  static HIDE_SIDE_NAV = 'applications/HIDE_SIDE_NAV';
+
   fetchApps = () => ({type: ApplicationsActions.FETCH_APPS});
 
   fetchAppsOk = (apps: Application[]) => ({type: ApplicationsActions.FETCH_APPS_OK, apps});
 
   fetchAppsFail = () => ({type: ApplicationsActions.FETCH_APPS_FAIL});
+
+  showSideNav = () => ({type: ApplicationsActions.SHOW_SIDE_NAV});
+
+  hideSideNav = () => ({type: ApplicationsActions.HIDE_SIDE_NAV});
 }

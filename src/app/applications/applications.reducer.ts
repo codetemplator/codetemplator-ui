@@ -9,6 +9,10 @@ export const applicationsReducer = (state: ApplicationsState = applicationState,
       return {...state, isFetchingApps: false, apps: action.apps};
     case ApplicationsActions.FETCH_APPS_FAIL:
       return {...state, isFetchingApps: false};
+    case ApplicationsActions.SHOW_SIDE_NAV:
+      return {...state, showSideNav: true};
+    case ApplicationsActions.HIDE_SIDE_NAV:
+      return {...state, showSideNav: false};
     default:
       return state;
   }

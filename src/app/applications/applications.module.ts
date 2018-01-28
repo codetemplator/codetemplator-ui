@@ -4,6 +4,7 @@ import {ApplicationsComponent} from './applications.component';
 import {ApplicationsActions} from './applications.actions';
 import {ApplicationsService} from './applications.service';
 import {MatSidenavModule} from '@angular/material';
+import { ListApplicationsComponent } from './list-applications/list-applications.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {MatSidenavModule} from '@angular/material';
     MatSidenavModule
   ],
   declarations: [
-    ApplicationsComponent
+    ApplicationsComponent,
+    ListApplicationsComponent
   ],
   providers: [
     ApplicationsActions,
