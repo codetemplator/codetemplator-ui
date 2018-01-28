@@ -1,6 +1,6 @@
 <mat-dialog-content>
   <form style="height: 150px; max-height: 150px;">
-    <p *ngIf="!(login$ | async)?.isAddingApplication else spinner">
+    <p *ngIf="!(applications$ | async)?.isAddingApplication else spinner">
       <mat-form-field>
         <input matInput placeholder="Name"
                (keyup)="updateName($event.target.value)"
