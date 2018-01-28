@@ -9,6 +9,7 @@ import {User} from '../user/user.state';
 import {MatDialog} from '@angular/material';
 import {AddApplicationModalComponent} from './add-application-modal/add-application-modal.component';
 import {AddForm} from './applications.state';
+import {concat} from 'rxjs/observable/concat';
 
 @Injectable()
 export class ApplicationsEpics {
@@ -59,7 +60,10 @@ export class ApplicationsEpics {
         const {addForm}: { addForm: AddForm } = store.getState().applications;
 
         return this.applicationsService.addApp(user, addForm)
-          .map(this.applicationsActions.addOk)
+          .mergeMap((application) => concat(
+            of(this.applicationsActions.addOk(application)),
+            of(this.applicationsActions.hideAddApplicationModal())
+          ))
           .catch(() => of(this.applicationsActions.addFail()));
       });
   };
