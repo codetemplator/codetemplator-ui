@@ -16,7 +16,9 @@ export class ApplicationsEpics {
 
   epics: Epic<any, any>[];
 
-  constructor(public dialog: MatDialog, private applicationsService: ApplicationsService, private applicationsActions: ApplicationsActions) {
+  constructor(public dialog: MatDialog,
+              private applicationsService: ApplicationsService,
+              private applicationsActions: ApplicationsActions) {
     this.epics = [this.fetchApplications, this.showAddApplicationModal, this.hideAddApplicationModal, this.addApp];
   }
 
