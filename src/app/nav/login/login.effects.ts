@@ -1,5 +1,3 @@
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/catch';
 import {Injectable} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {LoginActions} from './login.actions';
@@ -37,9 +35,7 @@ export class LoginEffects {
   @Effect() login = this.actions$.pipe(
     ofType(LoginActions.LOGIN),
     withLatestFrom(this.store$),
-    select(([action, storeState]) => {
-      return storeState.login.loginForm;
-    }),
+    select(([action, storeState]) => storeState.login.loginForm),
     mergeMap((loginForm) =>
       this.userService.login(loginForm)
         .mergeMap((user: User) => [

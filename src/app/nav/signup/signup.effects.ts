@@ -1,10 +1,8 @@
-import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 import {Injectable} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {of} from 'rxjs/observable/of';
 import {UserService} from '../../user/user.service';
-import {concat} from 'rxjs/observable/concat';
 import {SignupActions} from './signup.actions';
 import {SignupUser} from './signup.state';
 import {SignupModalComponent} from './signup-modal/signup-modal.component';
@@ -17,7 +15,7 @@ import {AppState} from '../../root.reducer';
 @Injectable()
 export class SignupEffects {
 
-  @Effect() showSignupnModal$: Observable<Action> = this.actions$.pipe(
+  @Effect() showSignupModal$: Observable<Action> = this.actions$.pipe(
     ofType(SignupActions.SHOW_MODAL),
     map(() => {
       this.dialog.open(SignupModalComponent, {
@@ -38,15 +36,13 @@ export class SignupEffects {
   @Effect() signup = this.actions$.pipe(
     ofType(SignupActions.SIGNUP),
     withLatestFrom(this.store$),
-    select(([action, storeState]) => {
-      return storeState.signup.signupForm;
-    }),
+    select(([action, storeState]) => storeState.signup.signupForm),
     mergeMap((signupForm) =>
       this.userService.signup(signupForm)
-        .mergeMap((user: SignupUser) => concat(
-          of(this.signupActions.signupOk(user)),
-          of(this.signupActions.hideModal())
-        ))
+        .mergeMap((user: SignupUser) => [
+          this.signupActions.signupOk(user),
+          this.signupActions.hideModal()
+        ])
         .catch(() => of(this.signupActions.signupFail()))
     ));
 

@@ -20,4 +20,4 @@ export function loginReducer(state: LoginState = loginState, action): LoginState
     default:
       return state;
   }
-};
+}

@@ -17,6 +17,6 @@ export class UserService {
   }
 
   signup(signupForm: SignupForm): Observable<SignupUser> {
-    return this.http.post<SignupUser>(`${environment.api}/api/signup`, signupForm);
+    return this.http.post<SignupUser>(`${environment.api}/users`, signupForm);
   }
 }
