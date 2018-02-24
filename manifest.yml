@@ -1,4 +1,4 @@
-name: redux-mesh-ui
+name: codetemplator-ui
 instances: 1
 memory: 128M
 buildpack: nodejs_buildpack
