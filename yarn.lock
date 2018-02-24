@@ -188,6 +188,10 @@
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-5.1.0.tgz#cef84576b2d0333f19188aedfe156fd301bff70a"
 
+"@ngrx/schematics@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-5.1.0.tgz#b6c08daaf20e7ff96e044525c23818ade26a5927"
+
 "@ngrx/store@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-5.1.0.tgz#d957131e62041deede043524fd300db9fa835d68"
