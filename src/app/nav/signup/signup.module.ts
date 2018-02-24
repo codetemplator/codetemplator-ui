@@ -5,6 +5,7 @@ import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, Mat
 import {SignupModalComponent} from './signup-modal/signup-modal.component';
 import {CoreModule} from '../../core/core.module';
 import {SignupActions} from './signup.actions';
+import {SignupEffects} from './signup.effects';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {SignupActions} from './signup.actions';
     SignupComponent
   ],
   providers: [
-    SignupActions
+    SignupActions,
+    SignupEffects
   ],
   entryComponents: [
     SignupModalComponent

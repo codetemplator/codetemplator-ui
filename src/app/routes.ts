@@ -1,6 +1,4 @@
 import {LandingComponent} from './landing/landing.component';
-import {ApplicationsComponent} from './applications/applications.component';
-import {LoggedInGuard} from './router/logged-in.guard';
 
 export const routes = [
   {
@@ -11,10 +9,5 @@ export const routes = [
   {
     path: '',
     component: LandingComponent
-  },
-  {
-    path: 'applications',
-    component: ApplicationsComponent,
-    canActivate: [LoggedInGuard]
   }
 ];

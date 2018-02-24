@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {dispatch} from '@angular-redux/store';
 import {SignupActions} from './signup.actions';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../root.reducer';
 
 @Component({
   selector: 'app-signup',
@@ -9,11 +10,10 @@ import {SignupActions} from './signup.actions';
 })
 export class SignupComponent {
 
-  constructor(private actions: SignupActions) {
+  constructor(private store: Store<AppState>, private actions: SignupActions) {
   }
 
-  @dispatch()
   showModal() {
-    return this.actions.showModal();
+    this.store.dispatch(this.actions.showModal());
   }
 }

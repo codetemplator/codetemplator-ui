@@ -1,7 +1,7 @@
 import {signupState, SignupState} from './signup.state';
 import {SignupActions} from './signup.actions';
 
-export const signupReducer = (state: SignupState = signupState, action): SignupState => {
+export function signupReducer(state: SignupState = signupState, action): SignupState {
   switch (action.type) {
     case SignupActions.SHOW_MODAL:
       return {...state, showModal: true};

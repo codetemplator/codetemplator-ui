@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {LoginActions} from '../login.actions';
-import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
 import {LoginState} from '../login.state';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../../root.reducer';
 
 @Component({
   selector: 'app-login-modal',
@@ -11,29 +12,26 @@ import {LoginState} from '../login.state';
 })
 export class LoginModalComponent {
 
-  @select('login') login$: Observable<LoginState>;
+  login$: Observable<LoginState>;
 
-  constructor(private actions: LoginActions) {
+  constructor(private store: Store<AppState>, private actions: LoginActions) {
+    this.login$ = this.store.select('login');
   }
 
-  @dispatch()
   hide() {
-    return this.actions.hideModal();
+    this.store.dispatch(this.actions.hideModal());
   }
 
-  @dispatch()
   updateUsername(username) {
-    return this.actions.updateUsername(username);
+    this.store.dispatch(this.actions.updateUsername(username));
   }
 
-  @dispatch()
   updatePassword(password) {
-    return this.actions.updatePassword(password);
+    this.store.dispatch(this.actions.updatePassword(password));
   }
 
-  @dispatch()
   login() {
-    return this.actions.login();
+    this.store.dispatch(this.actions.login());
   }
 
 }
