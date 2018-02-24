@@ -3,10 +3,10 @@ import {CommonModule} from '@angular/common';
 import {LoginComponent} from './login.component';
 import {UserModule} from '../../user/user.module';
 import {LoginModalComponent} from './login-modal/login-modal.component';
-import {LoginEpics} from './login.epics';
 import {LoginActions} from './login.actions';
 import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
 import {CoreModule} from '../../core/core.module';
+import {LoginEffects} from './login.effects';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import {CoreModule} from '../../core/core.module';
   ],
   providers: [
     LoginActions,
-    LoginEpics
+    LoginEffects
   ],
   exports: [
     LoginComponent

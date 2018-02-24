@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {dispatch, select} from '@angular-redux/store';
 import {SignupState} from '../signup.state';
 import {SignupActions} from '../signup.actions';
+import {AppState} from '../../../root.reducer';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-signup-modal',
@@ -11,33 +12,29 @@ import {SignupActions} from '../signup.actions';
 })
 export class SignupModalComponent {
 
-  @select('signup') signup$: Observable<SignupState>;
+  signup$: Observable<SignupState>;
 
-  constructor(private actions: SignupActions) {
+  constructor(private store: Store<AppState>, private actions: SignupActions) {
+    this.signup$ = this.store.select('signup');
   }
 
-  @dispatch()
   hide() {
-    return this.actions.hideModal();
+    this.store.dispatch(this.actions.hideModal());
   }
 
-  @dispatch()
   updateUsername(username: string) {
-    return this.actions.updateUsername(username);
+    this.store.dispatch(this.actions.updateUsername(username));
   }
 
-  @dispatch()
   updateEmail(email: string) {
-    return this.actions.updateEmail(email);
+    this.store.dispatch(this.actions.updateEmail(email));
   }
 
-  @dispatch()
   updatePassword(password: string) {
-    return this.actions.updatePassword(password);
+    this.store.dispatch(this.actions.updatePassword(password));
   }
 
-  @dispatch()
   signup() {
-    return this.actions.signup();
+    this.store.dispatch(this.actions.signup());
   }
 }

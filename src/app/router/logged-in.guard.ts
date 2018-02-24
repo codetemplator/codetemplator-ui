@@ -5,15 +5,18 @@ import {Injectable} from '@angular/core';
 import {of} from 'rxjs/observable/of';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {select} from '@angular-redux/store';
+import {select, Store} from '@ngrx/store';
+import {AppState} from '../root.reducer';
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {
 
-  @select(['user', 'isLoggedIn']) isLoggedIn$: Observable<boolean>;
-  @select(['login', 'isLoggingIn']) isLoggingIn$: Observable<boolean>;
+  isLoggedIn$: Observable<boolean>;
+  isLoggingIn$: Observable<boolean>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: Store<AppState>) {
+    this.isLoggedIn$ = store.pipe(select('user', 'isLoggedIn'));
+    this.isLoggingIn$ = store.pipe(select('login', 'isLoggingIn'));
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {

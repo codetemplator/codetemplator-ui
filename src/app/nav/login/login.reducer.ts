@@ -1,7 +1,7 @@
 import {loginState, LoginState} from './login.state';
 import {LoginActions} from './login.actions';
 
-export const loginReducer = (state: LoginState = loginState, action): LoginState => {
+export function loginReducer(state: LoginState = loginState, action): LoginState {
   switch (action.type) {
     case LoginActions.SHOW_MODAL:
       return {...state, showLoginModal: true};

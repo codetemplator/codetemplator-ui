@@ -2,14 +2,16 @@ import {Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {UserState} from '../user/user.state';
-import {select} from '@angular-redux/store';
+import {Store} from '@ngrx/store';
+import {AppState} from '../root.reducer';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  @select('user') user$: Observable<UserState>;
+  user$: Observable<UserState>;
 
-  constructor() {
+  constructor(private store: Store<AppState>) {
+    this.user$ = this.store.select('user');
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -20,7 +22,6 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
 
-      console.log(user);
       return next.handle(request)
     });
   }
