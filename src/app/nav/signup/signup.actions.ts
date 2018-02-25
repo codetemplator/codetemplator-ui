@@ -19,11 +19,11 @@ export class SignupActions {
 
   hideModal = () => ({type: SignupActions.HIDE_MODAL});
 
-  updateUsername = (username: string) => ({type: SignupActions.UPDATE_USERNAME, username});
+  updateUsername = (username: string) => ({type: SignupActions.UPDATE_USERNAME, payload: username});
 
-  updateEmail = (email: string) => ({type: SignupActions.UPDATE_EMAIL, email});
+  updateEmail = (email: string) => ({type: SignupActions.UPDATE_EMAIL, payload: email});
 
-  updatePassword = (password: string) => ({type: SignupActions.UPDATE_PASSWORD, password});
+  updatePassword = (password: string) => ({type: SignupActions.UPDATE_PASSWORD, payload: password});
 
   signup = () => ({type: SignupActions.SIGNUP});
 

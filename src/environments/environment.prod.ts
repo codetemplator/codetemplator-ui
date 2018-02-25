@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   hmr: false,
-  api: 'https://redux-mesh-api.cfapps.io/'
+  api: 'https://codetemplator-api.cfapps.io/'
 };

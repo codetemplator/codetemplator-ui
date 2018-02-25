@@ -13,8 +13,8 @@ export interface AppState {
 
 export function getRootReducer() {
   return {
-    login,
     user,
+    login,
     signup
   }
 }

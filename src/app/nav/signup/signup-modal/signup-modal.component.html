@@ -9,7 +9,7 @@
       <mat-form-field>
         <input matInput placeholder="Email"
                (keyup)="updateEmail($event.target.value)"
-               [value]="(signup$ | async)?.signupForm.username">
+               [value]="(signup$ | async)?.signupForm.email">
       </mat-form-field>
       <mat-form-field>
         <input type="password" matInput placeholder="Password"
@@ -21,7 +21,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="hide()">Cancel</button>
-  <button mat-button (click)="signup()">Login</button>
+  <button mat-button (click)="signup()">Signup</button>
 </mat-dialog-actions>
 
 <ng-template #spinner style="width: 100%; display: block;">
