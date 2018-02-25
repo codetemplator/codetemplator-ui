@@ -9,31 +9,32 @@ import {SignupModalComponent} from './signup-modal/signup-modal.component';
 import {Observable} from 'rxjs/Observable';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {Action, select, Store} from '@ngrx/store';
-import {map, withLatestFrom, mergeMap} from 'rxjs/operators';
+import {withLatestFrom, mergeMap} from 'rxjs/operators';
 import {AppState} from '../../root.reducer';
+import {empty} from 'rxjs/observable/empty';
 
 @Injectable()
 export class SignupEffects {
 
   @Effect() showSignupModal$: Observable<Action> = this.actions$.pipe(
     ofType(SignupActions.SHOW_MODAL),
-    map(() => {
+    mergeMap(() => {
       this.dialog.open(SignupModalComponent, {
         width: '600px'
       }).afterClosed();
 
-      return {type: 'UNKNOWN'};
+      return empty();
     }));
 
   @Effect() hideSignupModal$: Observable<Action> = this.actions$.pipe(
     ofType(SignupActions.HIDE_MODAL),
-    map(() => {
+    mergeMap(() => {
       this.dialog.closeAll();
 
-      return {type: 'UNKNOWN'};
+      return empty();
     }));
 
-  @Effect() signup = this.actions$.pipe(
+  @Effect() signup$ = this.actions$.pipe(
     ofType(SignupActions.SIGNUP),
     withLatestFrom(this.store$),
     select(([action, storeState]) => storeState.signup.signupForm),
@@ -52,5 +53,4 @@ export class SignupEffects {
               public signupActions: SignupActions,
               public userService: UserService) {
   }
-
 }

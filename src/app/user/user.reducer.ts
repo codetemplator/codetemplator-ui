@@ -1,11 +1,11 @@
 import {userState, UserState} from './user.state';
-import {LoginActions} from '../nav/login/login.actions';
+import {UserActions} from './user.actions';
 
 export function userReducer(state: UserState = userState, action): UserState {
   switch (action.type) {
-    case LoginActions.LOGIN_OK:
+    case UserActions.SET_USER:
       return {...state, user: action.payload, isLoggedIn: true};
     default:
       return state;
   }
-};
+}

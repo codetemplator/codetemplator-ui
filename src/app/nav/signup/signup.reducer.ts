@@ -1,6 +1,5 @@
 import {signupState, SignupState} from './signup.state';
 import {SignupActions} from './signup.actions';
-import {Action} from '@ngrx/store';
 
 export function signupReducer(state: SignupState = signupState, action): SignupState {
   switch (action.type) {

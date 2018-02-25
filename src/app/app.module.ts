@@ -32,7 +32,7 @@ export const metaReducers = environment.production ? [] : [logger];
     BrowserAnimationsModule,
     BrowserTransferStateModule,
     StoreModule.forRoot(getRootReducer(), {metaReducers}),
-    EffectsModule.forRoot([LoginEffects, SignupEffects]),
+    EffectsModule.forRoot([SignupEffects, LoginEffects]),
     CoreModule,
     MatSidenavModule,
     NavModule,

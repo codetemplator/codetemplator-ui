@@ -16,13 +16,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     RouterModule,
     LoadingComponent
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
-  ]
+  providers: []
 })
 export class CoreModule {
 

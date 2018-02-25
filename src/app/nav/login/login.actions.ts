@@ -24,7 +24,7 @@ export class LoginActions {
 
   login = () => ({type: LoginActions.LOGIN});
 
-  loginOk = (user: User) => ({type: LoginActions.LOGIN_OK, user});
+  loginOk = (user: User) => ({type: LoginActions.LOGIN_OK, payload: user});
 
   loginFail = () => ({type: LoginActions.LOGIN_FAIL});
 }
